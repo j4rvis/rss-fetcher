@@ -4,8 +4,15 @@ jobs:
   echo-name:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       # - uses: actions/setup-node@v2
       #   with:
       #     node-version: '14'
-      - run: echo 'rss-fetcher'
+      - name: Run
+        run: echo 'rss-fetcher'
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-central-1
+          role-to-assume: ${{ secret.AWS_GITHUB_ROLE_ARN }}
