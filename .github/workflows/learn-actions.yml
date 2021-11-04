@@ -8,11 +8,11 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Run
         run: echo 'rss-fetcher'
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@master
         with:
           role-to-assume: arn:aws:iam::022586301226:role/Github-Role-rss-fetcher-Role-LYBOOIPP4JL1
           aws-region: eu-central-1
